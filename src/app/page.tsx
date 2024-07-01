@@ -1,25 +1,44 @@
+'use client'
 import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, PayEmbed, useActiveAccount } from "thirdweb/react";
 import thirdwebIcon from "@public/thirdweb.svg";
+import { base, sepolia } from "thirdweb/chains";
 import { client } from "./client";
+import PayWithCoinbaseButton from "@/buyWidget";
 
 export default function Home() {
+  const account = useActiveAccount()
+  console.log('account:', account)
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
       <div className="py-20">
-        <Header />
+        {/* <Header /> */}
 
         <div className="flex justify-center mb-20">
           <ConnectButton
             client={client}
             appMetadata={{
-              name: "Example App",
-              url: "https://example.com",
+              name: "Payment Portal",
+              url: "https://docs.legt.co",
             }}
+            onConnect={(wallet) => console.log('wallet', wallet)}
+            onDisconnect={() => console.log('bye')}
           />
         </div>
-
-        <ThirdwebResources />
+        {/* <PayEmbed
+          client={client}
+          payOptions={{
+            prefillBuy: {
+              amount: "5",
+              chain: base,
+            },
+            // buyWithFiat: { testMode: true },
+          }} /> */}
+        {/* <PayWithCoinbaseButton sendAddress="0x1DEA6076bC003a957B1E4774A93a8D9aB0CBC1C1" /> */}
+        {account &&
+          <PayWithCoinbaseButton sendAddress={account?.address} amount={.1} />
+        }
+        {/* <ThirdwebResources /> */}
       </div>
     </main>
   );

@@ -133,6 +133,11 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@coinbase/cbpay-js@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@coinbase/cbpay-js/-/cbpay-js-2.2.0.tgz#7be6642d1d4b7ea1202336cf60d111f3125aad50"
+  integrity sha512-axTmgdxj57OmLFDjiHmMfZe/kdntBPHRFUektvTZoH8fX94gslw0+WSZgOdrLGkxaOv1TEnJRg+p6xq5MI0uAA==
+
 "@coinbase/wallet-sdk@4.0.3":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@coinbase/wallet-sdk/-/wallet-sdk-4.0.3.tgz#fd52dd4c168c35979c7b3294018a6f78d163a593"
